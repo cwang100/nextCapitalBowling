@@ -133,6 +133,7 @@ var client = new BowlingApiClient('http://bowling-api.nextcapital.com/api');
     leagueId: leagueid,
     success: function(bowlers) {
       window.alert("Success!");
+      getLeagueDetail(leagueid);
     },
     error: function(xhr)  {
       window.alert("Error!");
@@ -242,6 +243,7 @@ var client = new BowlingApiClient('http://bowling-api.nextcapital.com/api');
     },
     error: function(xhr) {
       window.alert(JSON.parse(xhr.responseText).error);
+      getLotts(leagueid);
     }
     });
   }
@@ -253,9 +255,11 @@ var client = new BowlingApiClient('http://bowling-api.nextcapital.com/api');
     lotteryId: lotteriesid,
     success: function(ticket) {
       console.log(ticket);
+      getLotts(leagueid);
     },
     error: function(xhr)  {
       window.alert(JSON.parse(xhr.responseText).error);
+      getLotts(leagueid);
     }
   });
   }
@@ -275,15 +279,18 @@ var client = new BowlingApiClient('http://bowling-api.nextcapital.com/api');
     bowlerId: roll.bowler_id,
     success: function(bowler) {
       window.alert("Ticket ID: "+roll.id+"\nPin Count "+roll.pin_count+"\nBowler ID: "+roll.bowler_id+"\nBowler Name: "+bowler.name);
+      getLotts(leagueid);
     },
     error: function(xhr) {
-      console.log(JSON.parse(xhr.responseText));
+      window.alert(JSON.parse(xhr.responseText).error);
+      getLotts(leagueid);
     }
   });
       }
     },
     error: function(xhr)  {
       window.alert(JSON.parse(xhr.responseText).error);
+      getLotts(leagueid);
     }
   });
   }
@@ -298,14 +305,17 @@ var client = new BowlingApiClient('http://bowling-api.nextcapital.com/api');
     bowlerId: roll.bowler_id,
     success: function(bowler) {
       window.alert("Ticket ID: "+roll.id+"\nPin Count: "+roll.pin_count+"\nBowler ID: "+roll.bowler_id+"\nBowler Name: "+bowler.name);
+      getLotts(leagueid);
     },
     error: function(xhr) {
-      console.log(JSON.parse(xhr.responseText));
+      window.alert(JSON.parse(xhr.responseText).error);
+      getLotts(leagueid);
     }
   });
     },
     error: function(xhr)  {
       window.alert(JSON.parse(xhr.responseText).error);
+      getLotts(leagueid);
     }
   });
   }

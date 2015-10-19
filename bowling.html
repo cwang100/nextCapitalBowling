@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  <title>NextCapital Bowling</title>
+
+  <!-- CSS  -->
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/jquery.leanModal.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src='lib/client.js'></script>
+  <script>
+    $(document).ready(function(){
+    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+    $('.modal-trigger').leanModal();
+    });
+  </script>
+</head>
+
+<body>
+  <nav class="light-blue lighten-1" role="navigation">
+    <div class="container">
+      <ul class = "left">
+        <h4>NextCapital Bowling</h4>
+      </ul>
+      <ul class="right">
+        <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Sign Up</a>
+        <a class="waves-effect waves-light btn modal-trigger" href="#modal2">Log In</a>
+      </ul>
+    </div>
+  </nav>
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h5>Sign Up</h5>
+      <form id="signup">
+      Email:
+      <input type="text" name="email">
+      Password:
+      <input type="text" name="password">
+      </form>
+    </div>
+    <div class="modal-footer">
+      <a onclick = "createUser()" class=" modal-action modal-close waves-effect waves-green btn-flat">Submit</a>
+    </div>
+  </div>
+  <div id="modal2" class="modal">
+    <div class="modal-content">
+      <h5>Log In</h5>
+      <form id="login">
+      Email:
+      <input type="text" name="email">
+      Password:
+      <input type="text" name="password">
+      </form>
+    </div>
+    <div class="modal-footer">
+      <a onclick = "loginUser()" class=" modal-action modal-close waves-effect waves-green btn-flat">Submit</a>
+    </div>
+  </div>
+
+
+<div class="container">
+  <div class="card orange lighten-1">
+            <div class="card-content white-text">
+              <span class="card-title">Introduction</span>
+              <p>To create new user, click sign up button. To log in, click log in button. To add new bowler, click add new bowler button. To show all bowler, click show all bowler button. To add new league, click add new league button. To add player to league, select a league and add at the bottom of the league detail. To view lotteries, click view lotteries after select a league. Tickets can be purchaced and winners can be drawn from each lottery.</p>
+            </div>
+  </div>
+  <div >
+      <div id = "bowlers" class="collection">
+          <li class="collection-item">Bowlers:</li>
+      </div>
+  </div>
+  <a class="waves-effect waves-light btn" onclick = "getAllBowler('bowlers')">Get all bowler</a>
+  <a class="waves-effect waves-light btn modal-trigger" href="#modal3">Add new bowler</a>
+   <div id="modal3" class="modal">
+    <div class="modal-content">
+      <h5>Add new bowler</h5>
+      <form id="bowler">
+      Name:
+      <input type="text" name="name">
+      </form>
+    </div>
+    <div class="modal-footer">
+      <a onclick = "addNewBowler()" class=" modal-action modal-close waves-effect waves-green btn-flat">Submit</a>
+    </div>
+  </div>
+
+  <div >
+      <div id = "leagues" class="collection">
+          <li class="collection-item">Leagues:</li>
+      </div>
+  </div>
+  <a class="waves-effect waves-light btn" onclick = "getAllLeague()">Get All League</a>
+  <a class="waves-effect waves-light btn modal-trigger" href="#modal4">Add new League</a>
+  <div id = "detail" class="collection">
+        <li class="collection-item">League Detail:</li>
+  </div>
+  <div id="modal4" class="modal">
+    <div class="modal-content">
+      <h5>Add new League</h5>
+      <form id="league">
+      Name:
+      <input type="text" name="name">
+      </form>
+    </div>
+    <div class="modal-footer">
+      <a onclick = "addNewLeague()" class=" modal-action modal-close waves-effect waves-green btn-flat">Submit</a>
+    </div>
+  </div>
+  <div id="modal5" class="modal">
+    <div class="modal-content">
+      <h5>Add player</h5>
+      <div id = "actions" class="collection">
+      </div>
+    </div>
+  </div>
+  <div id="modal6" class="modal">
+    <div class="modal-content">
+      <h5>Actions</h5>
+      <div id = "lotts" class="collection">
+      </div>
+    </div>
+  </div>
+  <div id="modal7" class="modal">
+    <div class="modal-content">
+      <h5>Actions</h5>
+      <div id = "lottplayers" class="collection">
+      </div>
+    </div>
+  </div>
+    </div>
+
+
+  </body>
+
+  <script src='js/controller.js'>
+  </script>
+</html>
